@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LinesController : MonoBehaviour
+public class OffsetController : MonoBehaviour
 {
     private float _audioLevelReceiver;
     private float _offset;
