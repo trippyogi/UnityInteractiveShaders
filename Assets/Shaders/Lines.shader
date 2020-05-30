@@ -8,6 +8,8 @@
         _Thickness ("Thickness", Range(0., 1.)) = .5
         _Speed("Speed", Range(0., 10.)) = 1.
         _Angle ("Angle", Float) = 0.
+        _Offset ("Offset", Float) = 0.
+        _Sensitivity("Sensitivity", Range(0., 1.)) = .1
     }
     SubShader
     {
@@ -43,8 +45,10 @@
             float4 _Color;
             int _Bands;
             float _Thickness;
-            float _Angle;
             float _Speed;
+            float _Angle;
+            float _Offset;
+            float _Sensitivity;
 
             v2f vert (appdata v)
             {
@@ -69,7 +73,7 @@
                 float thickness = _Thickness;
                 float angle = radians(_Angle);
                 uv = rotate(uv, angle);
-                float lines = step(thickness, frac(uv.y * numBands + _Time.y * _Speed));
+                float lines = step(thickness, frac(uv.y * numBands + _Time.y * _Speed + _Offset * _Sensitivity));
                 return _Color * lines;
             }
             ENDCG

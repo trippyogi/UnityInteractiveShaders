@@ -25,7 +25,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Angle: 0
-    - _Bands: 11
+    - _Bands: 22
+    - _Offset: 0
+    - _Sensitivity: 0.1
     - _Speed: 1
     - _Thickness: 0.5
     m_Colors:
